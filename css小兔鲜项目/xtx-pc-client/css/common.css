@@ -1,0 +1,428 @@
+/* 各个页面相同的样式表：头，尾 */
+/* 版心 */
+.wrapper {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+/* 快捷导航 */
+.shortcut {
+    height: 52px;
+    background-color: #333;
+}
+
+.shortcut .wrapper {
+    height: 52px;
+}
+
+/* ul里的li右浮动 li竖着排*/
+.shortcut .wrapper ul {
+    float: right;
+}
+
+/* li控制的字右浮动 li横着排*/
+.shortcut .wrapper li {
+    float: left;
+    /* 字垂直居中 */
+    line-height: 52px;
+}
+
+.shortcut .wrapper a {
+    padding: 0 16px;
+    /* 快捷：bdr */
+    border-right: 1px solid #666;
+    font-size: 14px;
+    color: #dcdcdc;
+}
+
+/* 精灵图 */
+.shortcut .wrapper a span {
+    /* span行标签宽高不生效 转模式 */
+    display: inline-block;
+    margin-right: 8px;
+    width: 11px;
+    height: 16px;
+    background-image: url(../images/sprites.png);
+    background-position: -160px -70px;
+    /* 图字平齐 */
+    vertical-align: middle;
+}
+
+/* 头部 */
+.header {
+    /* 必须auto，不然抵消wrapper中的auto */
+    margin: 30px auto;
+    height: 70px;
+}
+
+.logo {
+    float: left;
+    width: 207px;
+    height: 70px;
+}
+
+/* 搜索引擎优化做法 */
+.logo h1 {
+    width: 207px;
+    height: 70px;
+}
+
+.logo h1 a {
+    /* 转模式 行内/行内块 */
+    display: block;
+    width: 207px;
+    height: 70px;
+    background-image: url(../images/logo.png);
+    /* 工作中常用：图适应背景 */
+    background-size: contain;
+    /* 让字体看不见 */
+    font-size: 0;
+}
+
+/* 主导航 */
+.nav {
+    float: left;
+    margin-left: 40px;
+    height: 70px;
+}
+
+.nav li {
+    float: left; 
+    margin-right: 48px; 
+    line-height: 70px;
+}
+
+.nav li a {
+    /* hover里面边距给a加 */
+    padding-bottom: 7px;
+}
+
+.nav li a:hover {
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}
+
+/* 搜索框 */
+.search {
+    position: relative;
+    float: left;
+    margin-top: 24px;
+    margin-left: 35px;
+    border-bottom: 2px solid #e7e7e7;
+    width: 172px;
+    height: 30px;
+}
+
+.search input { 
+    padding-left: 31px;
+    width: 172px;
+    height: 28px;
+}
+.search input::placeholder {
+    font-size: 14px;
+    color: #ccc;
+}
+/* 定位：放大镜 */
+.search span {
+    /* 定位 子绝父相 */
+    position: absolute;
+    /* 绝对定位，span等盒子具备行内块特点，宽高生效，不需要转模式 */
+    /* display: inline-block; */
+    width: 18px;
+    height: 18px;
+    left: 2px;
+    top: 0;
+    background-image: url(../images/sprites.png);
+    background-position: -79px -69px;
+}
+
+/* 购物车 */
+.car {
+    /* position: relative; */
+    float: left;
+    margin-left: 15px;
+    /* margin-top: 28px; */
+    width: 23px;
+    height: 23px;
+    /* background-image: url(../images/sprites.png);
+    background-position: -120px -69px; */
+}
+
+.car a {
+    position: relative;
+    margin-top: 28px;
+    display: block;
+    width: 23px;
+    height: 23px;
+    background-image: url(../images/sprites.png);
+    background-position: -120px -69px;
+}
+.car span {
+    /* 绝对定位，span等盒子具备行内块特点，宽高生效，不需要转模式 */
+    position: absolute;
+    left: 16px;
+    top: -6px;
+    width: 20px;
+    height: 15px;
+    background-color: #e26237;
+    /* 圆角 */
+    border-radius: 8px;
+
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    line-height: 15px;
+}
+
+/* 底部 客户服务 */
+.download {
+    height: 302px;
+    background-color: #fff;
+}
+
+.download .top ul {
+    float: left;
+}
+
+.download .top li {
+    float: left;
+    margin: 79px 238px 0 0;
+    color: #999;
+}
+
+.download .top li:first-child {
+    margin-left: 123px;
+}
+
+.download .top li:last-child {
+    margin-right: 126px;
+}
+/* 底部 */
+.download .bottom a {
+    position: relative;
+    float: left;
+    /* display: inline-block; */
+    margin-right: 6px;
+    margin-top: 35px;
+    width: 93px;
+	height: 92px;
+	border: solid 1px #eeeeee;
+
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    line-height: 130px;
+}
+
+/* 伪元素添加定位精灵图 */
+.download .bottom a:nth-child(1)::before,
+.download .bottom a:nth-child(2)::before,
+.download .bottom a:nth-child(3)::before,
+.download .bottom a:nth-child(4)::before {
+    /* display: block; */
+    position: absolute;
+    top: 22px;
+    left: 32px;
+    content: '';
+    width: 36px;
+	height: 29px;
+    background-image: url(../images/sprites.png);
+}
+
+.download .bottom a:nth-child(1)::before {
+    background-position: -250px -70px;
+}
+
+.download .bottom a:nth-child(2)::before {
+    background-position: -350px -70px;
+}
+
+.download .bottom a:nth-child(3)::before {
+    background-position: -205px -15px;
+}
+
+.download .bottom a:nth-child(4)::before {
+    background-position: -300px -15px;
+}
+
+.download .bottom a:nth-child(4) {
+    margin-right: 0;
+}
+
+.download .bottom a:first-child {
+    margin-left: 58px;
+}
+
+.download .bottom a:nth-child(3) {
+    margin-left: 105px;
+}
+
+.download .bottom span {
+    float: left;
+    margin-top: 24px;
+    width: 116px;
+    height: 116px;
+}
+
+.download .bottom .one {
+    margin-left: 93px;
+    border: solid 1px #eeeeee;
+    text-align: center;
+    line-height: 116px;
+}
+
+.download .bottom .two p {
+    /* padding-top: 10px; */
+    padding-left: 12px;
+    font-size: 14px;
+    color: #999;
+    line-height: 30px;
+}
+
+.download .bottom img {
+    width: 105px;
+	height: 103px;
+}
+
+.download .bottom .two .three {
+    /* float: left; */
+    /* margin-bottom: 40px; */
+    margin-left: 12px;
+    padding-left: 0;
+    width: 90px;
+	height: 32px;
+	background-color: #27ba9b;
+    text-align: center;
+    line-height: 32px;
+    color: #fff;
+}
+
+.download .bottom .service {
+    /* float: left; */
+    margin-left: 110px;
+    margin-top: 50px;
+    width: 170px;
+    height: 60px;
+    
+    line-height: 30px;
+    font-size: 22px;
+    color: #666;
+}
+
+.download .bottom .service .clock {
+    font-size: 15px;
+    color: #999;
+}
+
+
+
+/* 尾部 版权区域 */
+.footer {
+    height: 343px;
+    background-color: #333;
+}
+
+/* 版权区域 版心宽度特权 版心宽度需要修改 */
+.footer .wrapper {
+    width: 1393px;
+}
+
+.footer .top {
+    padding: 59px 0 0 135px;
+    height: 174px;
+    border-bottom: 3px solid #434343;
+}
+
+.footer .top li {
+    position: relative;
+    float: left;
+    margin-right: 300px;
+
+    width: 195px;
+    height: 58px;
+
+    line-height: 58px;
+}
+
+.footer .top li:last-child {
+    margin-right: 0;
+}
+
+/* 伪元素添加标签 行内 转模式 */
+.footer .top li::before {
+    /* display: inline-block; */
+    /* 如果行内块和行内文字无法通过vertical-align或行高对齐，用定位“子绝父相” */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 伪元素 必有 */
+    content: " ";
+
+    /* 再写宽高背景色等等 */
+    width: 58px;
+    height: 58px;
+    background-image: url(../images/sprites.png);
+    /* 图文一条线居中 */
+    vertical-align: middle;
+}
+
+.footer .top li span {
+   padding-left: 77px;
+    font-size: 28px;
+    color: #fff;
+}
+
+/* 第二个li里面的before添加背景图位置 */
+.footer .top li:nth-child(2)::before {
+    background-position: -64px 0;
+}
+
+.footer .top li:last-child::before {
+    background-position: -130px 0;
+}
+
+.footer .bottom {
+    padding-top: 41px;   
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+}
+
+.footer .bottom a {
+    font-size: 14px;
+    color: #999;
+}
+
+.footer .bottom p {
+    margin-bottom: 18px;
+}
+
+/* 网页尾部的文字 不需要设置样式，直接用a标签 */
+
+/* .footer .bottom li {
+    float: left;    
+}
+
+.footer .bottom a {
+    display: block;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #999;
+
+    font-size: 14px;
+    color: #999;
+}
+
+.footer .bottom a:last-child {
+    padding-right: 0;
+    border-right: 0
+}
+
+.footer .bottom span {
+    font-size: 14px;
+    color: #999;
+} */
+
+
+
+

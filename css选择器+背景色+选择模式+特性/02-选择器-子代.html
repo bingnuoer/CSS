@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        /* 将div中的a变红 */
+        /* 父选择器 空格 子选择器{} */
+        div a {
+            color: red;
+        }
+        /* 将div中的儿子a变黄 */
+        /* 父标签>儿子标签{ } */
+        div > a {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        父级
+        <a href="#">这是div的儿子a</a>
+        <p>
+            <a href="#">这是div中的p中的a</a>
+        </p>
+    </div>
+</body>
+</html>

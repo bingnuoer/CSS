@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: 50px auto;
+            width: 640px;
+            height: 50px;
+            background-color: #ffc0cb;
+        }
+        /* 导航就用ul>li */
+        ul{
+            list-style: none;
+        }
+        .box li{
+            float: left; 
+        }
+        .box li a{
+            /* 宽高加给a，用户可以点的范围变大，提高用户体验 */
+            /* float/display */
+            display: inline-block;
+            /* 盒子 */
+            width: 80px;
+            height: 50px;
+            /* 文字样式 */
+            text-decoration: none;
+            color: white;
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .box a:hover{
+            width: 80px;
+            height: 50px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><a href="#">新闻1</a></li>
+            <li><a href="#">新闻2</a></li>
+            <li><a href="#">新闻3</a></li>
+            <li><a href="#">新闻4</a></li>
+            <li><a href="#">新闻5</a></li>
+            <li><a href="#">新闻6</a></li>
+            <li><a href="#">新闻7</a></li>
+            <li><a href="#">新闻8</a></li>
+        </ul>
+    </div>
+</body>
+</html>

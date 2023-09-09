@@ -1,0 +1,677 @@
+/* index页面的样式 */
+/* banner */
+.banner {
+    height: 500px;
+    background-color: #f5f5f5;
+}
+
+.banner .wrapper {
+    position: relative;
+    height: 500px;
+}
+
+/* 侧导航 */
+
+.banner .aside {
+    /* 图片压图片：定位-子绝父相 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 251px;
+    height: 500px;
+    background-color: #000;
+    /* 透明度 */
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.banner .aside li {
+    height: 50px;
+    width: 251px;
+    line-height: 50px;
+}
+
+.banner .aside a {
+    /* block模式宽和父级一样 */
+    display: block;
+    position: relative;
+    padding-left: 36px;
+    padding-right: 20px;
+    height: 50px;
+    color: #fff;
+}
+
+/* 给a加悬停效果 */
+.banner .aside a:hover {
+    background-color: #27ba9b;
+}
+
+.banner .aside span {
+    margin-left: 15px;
+    /* margin-right: 82px; */
+    font-size: 14px;
+}
+
+/* 在a标签尾部使用伪元素 添加精灵图 */
+.banner .aside a::after {
+    /* display: inline-block; */
+    position: absolute;
+    top: 19px;
+    right: 19px;
+    content: '';
+    width: 6px;
+	height: 11px;
+    /* margin-left: 82px; */
+    background-image: url(../images/sprites.png);
+    background-position: -80px -110px;
+}
+
+/* 箭头 */
+/* 并集选择器：左右箭头共同样式，添加精灵图，最后分别在prev next中设置精灵图位置即可*/
+.banner .prev,
+.banner .next {
+    position: absolute;
+    /* 定位 子绝父相 是相对父级的距离 */
+    top: 228px;
+    width: 45px;
+    height: 44px;
+    background-color: rgba(0, 0, 0, .2);
+    /* 圆 */
+    border-radius: 50%;
+    background-image: url(../images/sprites.png);
+}
+/* 背景图位置负责2件事:改变箭头在盒子里面的位置;改变精灵图的位置 */
+/* 导致在精灵图中测量的尺寸不准确 */
+/* 
+    解决方案有2种:
+    1.书写背景图位置属性，借助谷歌的调试工具调试具体的位置数值,网页右键检查 调整箭头bgp合适位置，直到垂直居中，复制粘贴bgp数值
+    2.书写标签的时候，a负责盒子，里面再添加一个span负责箭头 
+*/
+.banner .prev {
+    left: 260px;
+    background-position: 14px -60px;
+}
+
+.banner .next {
+    right: 10px;
+    background-position: -23px -60px;
+}
+
+/* 圆点 */
+/* 子绝父相定位 就不用浮动 */
+.banner ol {
+    position: absolute;
+    left: 680px;
+    bottom: 31px;
+    height: 10px;
+}
+
+.banner ol li {
+    float: left;
+    margin-left: 24px;
+    width: 9px;
+    height: 10px;
+    /* 数字只有0-225，三个0表示纯黑色，三个225表示纯白色 */
+    background-color: rgba(225, 225, 225, .43);
+    border-radius: 50%;
+    /* 鼠标接触变小手 */
+    cursor: pointer;
+}
+/* 圆点变色链接图片当前状态，用js 调用current类即可，并不是使用hover*/
+.banner ol .current{
+    width: 10px;
+    background-color: #fff;
+}
+
+/* 新鲜好物 头部*/
+.goods .hd,
+.hot .hd,
+.topic .hd {
+    height: 114px;
+    line-height: 114px;
+}
+
+.goods .hd h2,
+.hot .hd h2,
+.topic .hd h2 {
+    float: left;
+    height: 114px;
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.goods .hd span,
+.hot .hd span {
+    margin-left: 34px;
+    font-size: 16px;
+    color: #999;
+}
+
+/* 生鲜里面的“查看全部”与新鲜好物里的样式一样，直接用并集选择器 */
+.goods .hd a,
+.shengxian .hd .more,
+.clothes .hd .more,
+.kitchen .hd .more,
+.home .hd .more,
+.topic .hd a {
+    float: right;
+    color: #999;
+}
+
+.goods .hd a::after,
+.shengxian .hd .more::after,
+.clothes .hd .more::after,
+.kitchen .hd .more::after,
+.home .hd .more::after,
+.topic .hd a::after {
+    /* 伪元素 要转模式——行内/行内块 */
+    content: '';
+    display: inline-block;
+    margin-left: 13px;
+    width: 7px;
+    height: 13px;
+    background-image: url(../images/sprites.png);
+    background-position: 0 -110px;
+    /* 图文平齐 */
+    vertical-align: middle;
+}
+
+/* 新鲜好物 身体*/
+/* 浮动脱标，li压在footer上面，需要给li添加clearfix属性 */
+.goods .bd li {
+    position: relative;
+    float: left;
+    margin-right: 8px;
+    height: 405px;
+    width: 304px;
+    background-color: #f0f9f4;
+}
+
+.goods .bd li:last-child {
+    margin-right: 0;
+}
+
+.goods .bd a {
+    text-align: center;
+}
+
+.goods .bd img {
+    width: 304px;
+}
+
+.goods .bd li h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.goods .bd li div,
+.shengxian .bd .right .price,
+.clothes .bd .right .price,
+.kitchen .bd .right .price,
+.home .bd .right .price {
+    font-size: 17px;
+    color: #9a2e1f;
+}
+
+.goods .bd li span,
+.shengxian .bd .right span,
+.clothes .bd .right span,
+.kitchen .bd .right span,
+.home .bd .right span {
+    font-size: 23px;
+    color: #9a2e1f;
+}
+
+/* 添加“新品小图标” */
+.goods .bd li::after {
+    position: absolute;
+    top: 18px;
+    left: 17px;
+    content: '新品';
+    width: 28px;
+	height: 51px;
+    border: 1.5px solid #27ba9b;
+    border-radius: 5px;
+    /* 缩小字行高 */
+    line-height: 24px;
+    text-align: center;
+    font-size: 18px;
+    color: #27ba9b;
+}
+
+/* 人气推荐 头部 */
+.pel .hd {
+    height: 115px;
+    line-height: 115px;
+}
+
+.pel .hd h2 {
+    float: left;
+    height: 115px;
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.pel .hd span {
+    margin-left: 34px;
+    font-size: 16px;
+    color: #999;
+}
+
+/* 人气推荐 身体*/
+.pel .bd li {
+    float: left;
+    margin-right: 8px;
+    height: 407px;
+    width: 304px;
+    background-color: #fff;
+}
+
+.pel .bd li:last-child {
+    margin-right: 0;
+}
+
+.pel .bd a {
+    text-align: center;
+}
+
+.pel .bd img {
+    width: 304px;
+}
+
+.pel .bd li h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.pel .bd li p {
+    color: #999;
+}
+
+/* 热门品牌 */
+.hot {
+    height: 466px;
+    background-color: #f5f5f5;
+}
+
+.hot .wrapper {
+    height: 466px;
+}
+
+/* 热门品牌 头部 */
+.hot .hd {
+    position: relative;
+    height: 115px;
+}
+/* 箭头 */
+.hot .hd .prev,
+.hot .hd .next {
+    position: absolute;
+    /* 定位 子绝父相 是相对父级的距离 */
+    top: 79px;
+    width: 20px;
+    height: 20px;
+    background-color: #e2e2e2; 
+    background-image: url(../images/sprites.png);
+}
+/* 背景图位置负责2件事:改变箭头在盒子里面的位置;改变精灵图的位置 */
+/* 导致在精灵图中测量的尺寸不准确 */
+/* 
+    解决方案有2种:
+    1.书写背景图位置属性，借助谷歌的调试工具调试具体的位置数值,网页右键检查 调整箭头bgp合适位置，直到垂直居中，复制粘贴bgp数值
+    2.书写标签的时候，a负责盒子，里面再添加一个span负责箭头 
+*/
+.hot .hd .prev {
+    right: 32px;
+    background-position: 3px -71px;
+}
+
+.hot .hd .next {
+    right: 0;
+    background-position: -36px -71px;
+}
+
+.hot .hd .prev:hover,
+.hot .hd .next:hover {
+    background-color: #27ba9b;
+}
+
+
+
+
+
+
+/* 热门品牌 身体 */
+.hot .bd li {
+    float: left;
+    margin-right: 2px;
+    width: 244px;
+    height: 306px;
+    background-color: pink;
+
+}
+
+.hot .bd ul:last-child {
+    margin-right: 0;
+}
+
+/* 图片超出背景图区域，给图片设置宽高 */
+.hot .bd li img{
+    width: 244px;
+    height: 306px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 生鲜 头部*/
+.shengxian .hd,
+.clothes .hd,
+.kitchen .hd,
+.home .hd {
+    height: 96px;
+    line-height: 96px;
+}
+
+.shengxian .hd h2,
+.clothes .hd h2,
+.kitchen .hd h2,
+.home .hd h2 {
+    float: left;
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.shengxian .hd .more,ul,
+.clothes .hd .more,ul,
+.kitchen .hd .more,ul,
+.home .hd .more,ul {
+    float: right;
+}
+
+.shengxian .hd li,
+.clothes .hd li,
+.kitchen .hd li,
+.home .hd li {
+    float: left;
+    
+}
+.shengxian .hd li a,
+.clothes .hd li a,
+.kitchen .hd li a,
+.home .hd li a {
+    margin-right: 6px;
+    padding: 2px 7px;
+    width: 46px;
+	height: 20px;
+    background-color: #fff;
+    text-align: center;
+	
+}
+
+.shengxian .hd li a:hover,
+.clothes .hd li a:hover,
+.kitchen .hd li a:hover,
+.home .hd li a:hover {
+    color: #fefbfc;
+    background-color: #27ba9b;
+}
+
+/* 最后一个li加右外边距,可以直接给ul加右外边距 */
+.shengxian .hd ul:last-child,
+.clothes .hd ul:last-child,
+.kitchen .hd ul:last-child,
+.home .hd ul:last-child {
+    margin-right: 58px;
+}
+
+/* 生鲜 身体 */
+.shengxian .bd .left,
+.clothes .bd .left,
+.kitchen .bd .left,
+.home .bd .left {
+    float: left;
+    width: 240px;
+    height: 610px;
+}
+
+.shengxian .bd .right,
+.clothes .bd .right,
+.kitchen .bd .right,
+.home .bd .right {
+    float: left;
+    width: 1000px;
+    height: 610px;
+}
+
+.shengxian .bd .right li,
+.clothes .bd .right li,
+.kitchen .bd .right li,
+.home .bd .right li {
+    /* position: relative; */
+    margin-left: 8px;
+    margin-bottom: 3px;
+    float: left;
+    width: 242px;
+    height: 304px; 
+}
+
+/* hover效果 */
+
+/* .shengxian .bd .right li::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 242px;
+    height: 84px;
+    background-color: #27ba9b;
+} */
+
+.shengxian .bd .right li:hover,
+.clothes .bd .right li:hover,
+.kitchen .bd .right li:hover,
+.home .bd .right li:hover {  
+    border: 2px solid #27ba9b;
+}
+
+/* .shengxian .bd .right li .area {
+    position: absolute;
+    top: 220px;
+    left: 0;
+    width: 242px;
+    height: 84px;
+    background-color: #27ba9b;
+
+    text-align: center;
+}
+
+.shengxian .bd .right li .area .one {
+    margin: 0 63px 0 54px;
+    width: 125px;
+    height: 44px;
+    border-bottom: 2px solid #a9dbcc;
+    line-height: 44px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.shengxian .bd .right li .area .two {
+    padding: 8px 75px 17px 79px;
+    font-style: 13px;
+    color: #fff;
+
+} */
+
+.shengxian .bd .right img,
+.clothes .bd .right img,
+.kitchen .bd .right img,
+.home .bd .right img {
+    margin: 8px 29px 12px;
+    width: 184px;
+    height: 184px;
+}
+
+.shengxian .bd .right .biaoqian,
+.clothes .bd .right .biaoqian,
+.kitchen .bd .right .biaoqian,
+.home .bd .right .biaoqian {
+    margin: 0 18px 13px 29px;
+    width: 166px;
+    height: 87px;
+}
+.shengxian .bd .right p,
+.clothes .bd .right p,
+.kitchen .bd .right p,
+.home .bd .right p {
+    font-size: 12px;
+}
+
+.shengxian .bd .right .price,
+.clothes .bd .right .price,
+.clothes .bd .right .price,
+.home .bd .right .price {
+    line-height: 40px;
+}
+
+/* 服饰,餐厨,居家 */
+.clothes .bd .left img,
+.kitchen .bd .left img,
+.home .bd .left img {
+    width: 240px;
+    height: 610px;
+}
+
+/* 最新专题 头部*/
+.topic {
+    height: 512px;
+    background-color: #f5f5f5;
+}
+
+.topic .wrapper {
+    height: 512px;
+}
+
+/* 最新专题 身体 */
+.topic .bd li {
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    width: 404px;
+    height: 356px;
+}
+
+.topic .bd li:last-child {
+    margin-right: 0;
+}
+
+.topic .bd li img {
+    width: 404px;
+    height: 288px;
+}
+
+/* 价格标签 */
+.topic .bd .price {
+    position: absolute;
+    right: 15px;
+    bottom: 96px;
+    width: 81px;
+    height: 27px;
+    background-color: #fff;
+    color: #9a2e1f;
+    text-align: center;
+    line-height: 27px;
+    font-weight: 700;
+}
+
+.topic .bd .price {
+    font-size: 14px;
+}
+
+.topic .bd .price span {
+    font-size: 17px;
+}
+
+/* 底部 */
+.topic .bd .bottom {
+    font-size: 14px;
+    line-height: 67px;
+    background-color: #ffffff;
+}
+
+.topic .bd .like {
+    margin-left: 34px;
+    margin-right: 40px;
+}
+
+/* 使用伪元素 */
+.topic .bd .like::before {
+    position: absolute;
+    bottom: 29px;
+    left: 2px;
+    content: '';
+    margin-left: 17px;
+    margin-right: 2px;
+    width: 15px;
+    height: 13px;
+    background-image: url(../images/sprites.png);
+    background-position: -120px -110px;
+}
+
+.topic .bd .look::before {
+    position: absolute;
+    bottom: 29px;
+    left: 89px;
+    content: '';
+    width: 16px;
+    height: 12px;
+    background-image: url(../images/sprites.png);
+    background-position: -159px -110px;
+}
+
+.topic .bd .comment {
+    margin-right: 18px;
+}
+
+.topic .bd .comment::before {
+    position: absolute;
+    bottom: 27px;
+    right: 44px;
+    content: '';
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+    background-image: url(../images/sprites.png);
+    background-position: -199px -109px;
+}
+
+.topic .bd .comment {
+    float: right;
+}
+
+/* 鼠标悬停效果 */
+.topic .bd .like:hover::before {
+    background-position: -240px -110px;
+}
+
+
+
+

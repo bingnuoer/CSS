@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 继承 */
+        body {
+            color: red;
+        }
+        /* 通配符* */
+        * {
+            color: bisque;
+        }
+        /* 标签 */
+        div {
+            color: blue;
+        } 
+        /* 类 和 !important*/
+        .box {
+            color: aqua !important;
+        }
+        /* id */
+        #box {
+            color: chartreuse;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 行内：style -->
+    <div class="box" id="box" style="color: black;">测试优先级</div> 
+</body>
+</html>
